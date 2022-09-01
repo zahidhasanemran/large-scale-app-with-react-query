@@ -14,8 +14,12 @@ export function useTreatments(): Treatment[] {
   // TODO: get data from server via useQuery
   const fallback = [];
   const { data = fallback } = useQuery(queryKeys.treatments, getTreatments, {
-    staleTime: 1000 * 10,
     retry: false,
+    staleTime: 1000 * 60,
+    cacheTime: 1000 * 90,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
   });
   return data;
 }
@@ -23,6 +27,7 @@ export function useTreatments(): Treatment[] {
 export function usePrefetchTreatments(): void {
   const queryClient = useQueryClient();
   queryClient.prefetchQuery(queryKeys.treatments, getTreatments, {
-    staleTime: 1000 * 30,
+    staleTime: 1000 * 60,
+    cacheTime: 1000 * 90,
   });
 }

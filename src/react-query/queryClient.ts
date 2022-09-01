@@ -22,9 +22,10 @@ export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       onError: queryErrorHandler,
-      refetchOnWindowFocus: false,
-      refetchOnMount: false,
-      retry: false,
+      // refetchOnWindowFocus: false,
+      // refetchOnMount: false,
+      // retry: false,
+      // refetchInterval: 20
     },
   },
 });
