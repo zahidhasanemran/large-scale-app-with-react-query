@@ -22,6 +22,9 @@ export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       onError: queryErrorHandler,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      retry: false,
     },
   },
 });
